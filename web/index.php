@@ -21,6 +21,10 @@ include "php/DBConnect.php";
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
           <optgroup class="titleGroup" label="Titles"></optgroup>
+          <optgroup class="webGroup" label="Web Rating"></optgroup>
+          <optgroup class="urGroup" label="User Rating"></optgroup>
+          <optgroup class="devGroup" label="Developer"></optgroup>
+          <optgroup class="pubGroup" label="Publisher"></optgroup>
           <optgroup class="playerGroup" label="Players"></optgroup>
           <optgroup class="systemGroup" label="System"></optgroup>
         </select>
@@ -36,101 +40,43 @@ include "php/DBConnect.php";
     <?php
 
     $conn = openConnect();
-    #$genreQuery = "select * from TestGames group by genres";
-    #$genreQuery = "select * from Games c where (select count(*) from Games f where f.genres = c.genres) > 0";
-    #$result = $conn->query($genreQuery);
-    #if ($result->num_rows > 0) {
-      // output data of each row
-      #while($row = $result->fetch_assoc()) {
-      #  echo $row["title"] . "\n";
-      #}
-    #} else {
-    #  echo "0 results";
-    #}
 
-    $fromArray = array('"', '\'');
-    $toArray = array('', '');
 
-    $genreQuery = "select * from TestGames where web_rating>3";
-    $result = $conn->query($genreQuery);
+    $fromArray = array('"', '\'', '&'. '(', ')');
+    $toArray = array('', '', '', '', '');
+
+    $mainQuery = 'select * from TestGames';
+    $result = $conn->query($mainQuery);
     while ( $row = $result->fetch_assoc() ) {
       $stripped = str_replace($fromArray,$toArray,$row['title']);
-      echo "$('.titleGroup').append('<option value=\"title : ".$stripped."\">Title : ".$stripped." </option>');";
+      echo "$('.titleGroup').append('<option value=\"title : " . $stripped . "\">Title : " . $stripped . " </option>');";
+      echo "$('.chosen-select').trigger('chosen:updated');";
+    }
+    $result = $conn->query($mainQuery);
+    while ( $row = $result->fetch_assoc() ) {
+      $stripped = str_replace($fromArray,$toArray,$row['web_rating']);
+      echo "$('.webGroup').append('<option value=\"web rating : " . $stripped . "\">Web Rating : " . $stripped . " </option>');";
+      echo "$('.chosen-select').trigger('chosen:updated');";
+    }
+    $result = $conn->query($mainQuery);
+    while ( $row = $result->fetch_assoc() ) {
+      $stripped = str_replace($fromArray,$toArray,$row['Developer']);
+      echo "$('.devGroup').append('<option value=\"developer : " . $stripped . "\">Developer : " . $stripped . " </option>');";
+      echo "$('.chosen-select').trigger('chosen:updated');";
+    }
+    $result = $conn->query($mainQuery);
+    while ( $row = $result->fetch_assoc() ) {
+      $stripped = str_replace($fromArray,$toArray,$row['Publisher']);
+      echo "$('.pubGroup').append('<option value=\"publisher : " . $stripped . "\">Publisher : " . $stripped . " </option>');";
+      echo "$('.chosen-select').trigger('chosen:updated');";
+    }
+    $result = $conn->query($mainQuery);
+    while ( $row = $result->fetch_assoc() ) {
+      $stripped = str_replace($fromArray,$toArray,$row['user_rating']);
+      echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
       echo "$('.chosen-select').trigger('chosen:updated');";
     }
 
-    function getPlayer($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM PLAYERS");
-      return $res;
-    }
-
-    function getGames($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM GAMES");
-      return $res;
-    }
-
-    function getPlayerByGender($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM PLAYERS GROUP BY GENDER");
-      return $res;
-    }
-
-    function getPlayerByRegion($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM PLAYERS GROUP BY REGION");
-      return $res;
-    }
-
-    function getPlayerByGenre($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM PLAYERS GROUP BY PREFFERED_GENRE");
-      return $res;
-    }
-
-    function getPlayerByIncome($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM PLAYERS GROUP BY INCOME");
-      return $res;
-    }
-
-    function getPlayerByMarital($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM PLAYERS GROUP BY MARITAL_STATUS");
-      return $res;
-    }
-
-    function getGamesByDeveloper($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM GAMES GROUP BY DEVELOPER");
-      return $res;
-    }
-
-    function getGamesByPublisher($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM GAMES GROUP BY PUBLISHER");
-      return $res;
-    }
-
-    function getGamesByGenre($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM GAMES GROUP BY GENRE");
-      return $res;
-    }
-
-    function getGamesByESRB($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM GAMES GROUP BY ESRB");
-      return $res;
-    }
-
-    function getGamesByRating($SQLConnection) {
-      $res = $SQLConnection->query("SELECT * FROM GAMES GROUP BY WEB_RATING");
-      return $res;
-    }
-
-    function getOther($SQLConnection, $SQLQuery) {
-      $res = $SQLConnection->query($SQLQuery);
-      return $res;
-    }
-
-    function printResult($SQLResult) {
-      if($SQLResult->num_rows >0) {
-        while($row = $SQLResult->fetch_assoc()) {
-          echo $row;
-        }
-      }
-    }
     ?>
   </script>
   </body>
