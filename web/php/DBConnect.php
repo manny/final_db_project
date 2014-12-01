@@ -5,7 +5,6 @@ function openConnect() {
 	if ($conn->connect_error) {
 		die("Error: Fail to connect to db");
 	}
-
 	return $conn;
 }
 
