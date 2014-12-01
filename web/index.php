@@ -35,8 +35,18 @@ include "php/DBConnect.php";
     <?php
 
     $conn = openConnect();
-    $genreQuery = "select * from GAMES c where (select count(*) from GAMES f where f.GENRE = c.GENRE) > 0";
+    $genreQuery = "select * from Games";
     $result = mysql_query($genreQuery, $conn);
+
+    if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        echo $row;
+      }
+    } else {
+      echo "0 results";
+    }
+
     while ( $row = mysql_fetch_assoc($result) ) {
       echo "$('.genreGroup').append('<option value=\"Genre : ".$row['genre']."\">Genre : ".$row['genre']." </option>');";
       echo "$('.chosen-select').trigger('chosen:updated');";
