@@ -13,13 +13,14 @@ include "php/DBConnect.php";
   </head>
   <body id="Main Page">
     <div class="container">
-      <h1 class="remove-bottom"><a href="index.html">Game Project!</a></h1>
+      <h1 class="remove-bottom"><a href="index.php">Game Project!</a></h1>
       <h3>Finding some table shit!</h3>
       <div class="nine columns clearfix">
-        <form class="formContent" action="php/Basic.php" method="post">
+        <form class="formContent" action="php/queries.php" method="post">
         <select name="queries[]" data-placeholder="Look for what?" style="width:500px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
+          <optgroup class="titleGroup" label="Titles"></optgroup>
           <optgroup class="playerGroup" label="Players"></optgroup>
           <optgroup class="systemGroup" label="System"></optgroup>
         </select>
@@ -35,22 +36,26 @@ include "php/DBConnect.php";
     <?php
 
     $conn = openConnect();
-    $genreQuery = "select * from TestGames group by genres";
+    #$genreQuery = "select * from TestGames group by genres";
     #$genreQuery = "select * from Games c where (select count(*) from Games f where f.genres = c.genres) > 0";
-    $result = $conn->query($genreQuery);
-    if ($result->num_rows > 0) {
+    #$result = $conn->query($genreQuery);
+    #if ($result->num_rows > 0) {
       // output data of each row
-      while($row = $result->fetch_assoc()) {
-        echo $row["title"] . "\n";
-      }
-    } else {
-      echo "0 results";
-    }
+      #while($row = $result->fetch_assoc()) {
+      #  echo $row["title"] . "\n";
+      #}
+    #} else {
+    #  echo "0 results";
+    #}
 
-    $genreQuery = "select * from TestGames group by genres";
+    $fromArray = array('"', '\'');
+    $toArray = array('', '');
+
+    $genreQuery = "select * from TestGames where web_rating>3";
     $result = $conn->query($genreQuery);
     while ( $row = $result->fetch_assoc() ) {
-      echo "$('.genreGroup').append('<option value=\"Title : ".$row['title']."\">Title : ".$row['title']." </option>');";
+      $stripped = str_replace($fromArray,$toArray,$row['title']);
+      echo "$('.titleGroup').append('<option value=\"title : ".$stripped."\">Title : ".$stripped." </option>');";
       echo "$('.chosen-select').trigger('chosen:updated');";
     }
 
@@ -124,9 +129,7 @@ include "php/DBConnect.php";
         while($row = $SQLResult->fetch_assoc()) {
           echo $row;
         }
-
       }
-
     }
     ?>
   </script>
