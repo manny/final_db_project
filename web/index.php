@@ -25,6 +25,7 @@ include "php/DBConnect.php";
           <optgroup class="urGroup" label="User Rating"></optgroup>
           <optgroup class="devGroup" label="Developer"></optgroup>
           <optgroup class="pubGroup" label="Publisher"></optgroup>
+          <optgroup class="genreGroup" label="Publisher"></optgroup>
           <optgroup class="playerGroup" label="Players"></optgroup>
           <optgroup class="systemGroup" label="System"></optgroup>
         </select>
@@ -74,6 +75,12 @@ include "php/DBConnect.php";
     while ( $row = $result->fetch_assoc() ) {
       $stripped = str_replace($fromArray,$toArray,$row['user_rating']);
       echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
+      echo "$('.chosen-select').trigger('chosen:updated');";
+    }
+    $result = $conn->query($mainQuery);
+    while ( $row = $result->fetch_assoc() ) {
+      $stripped = str_replace($fromArray,$toArray,$row['Genres']);
+      echo "$('.genreGroup').append('<option value=\"genres : " . $stripped . "\">Genres : " . $stripped . " </option>');";
       echo "$('.chosen-select').trigger('chosen:updated');";
     }
 
