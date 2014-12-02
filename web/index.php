@@ -17,7 +17,7 @@ include "php/DBConnect.php";
       <h3>Finding some table shit!</h3>
       <div class="nine columns clearfix">
         <form class="formContent" action="php/queries.php" method="post">
-        <select name="queries[]" data-placeholder="Look for what?" style="width:500px;" class="chosen-select" multiple>
+        <select name="queries" data-placeholder="Look for what?" style="width:500px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
           <optgroup class="titleGroup" label="Titles"></optgroup>

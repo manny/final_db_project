@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
 
 include 'DBConnect.php';
@@ -5,66 +7,30 @@ include 'DBConnect.php';
 ?>
 
 <?php
-if (isset($_POST['queries']))
-	$search=$_POST[ 'queries' ];
-else
+if (isset($_POST['queries'])){
+    echo "post";
+	$search=$_POST['queries'];
+}else{
+    echo "not";
 	$search = array();
-$output = array(array()); //holds all info about drinkers to output
-$drinkerIDs = array(); //holds only drinkerIDs used to see if ID is already in list
+}
 if($search){
-	foreach($search as $s){
-		$tknize = explode(" : ",$s);
-		if($tknize[0]=='title'){
-			$conn = openConnect();
-			$dbQuery = "SELECT * FROM TestGames";
-			$result = dbQuery->query($dbQuery,);
-			while($row=mysql_fetch_assoc($result)){
-				if (!in_array($row['title'], $drinkerIDs)) {
-					$drinkerIDs[]=$row['title'];
-					$output[]=array("title"=>$row['title']);
-				}
-			}
-		}
-	} 
-
+    foreach($search as $s){
+        echo $s;
+        $tkn = explode(" : ", $s);   
+        if($tkn[0]=='web_rating'){
+            $dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
+            echo "<p> dawg </p>";
+            $result = $conn->query($dbQuery);
+            echo "<p> dawg </p>";
+            while($row = $result->fetch_assoc()){
+                echo "yo";
+            }
+        }
+    } 
 }
 ?>
 
-<html>
-   <head>
-	  <link rel="stylesheet" type="text/css" href="../lib/datatables/media/css/jquery.dataTables.css" />
-	  <link rel="stylesheet" type="text/css" href="../stylesheets/base.css" />
-	  <link rel="stylesheet" type="text/css" href="../stylesheets/skeleton.css" />
-	  <link rel="stylesheet" type="text/css" href="../stylesheets/layout.css" />
-	  <script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
-	  <script type="text/javascript" src="../lib/datatables/media/js/jquery.dataTables.js"></script>
-   </head>
-   <body>
-	  <div class="container" style="top:50px">
-		 <h1 class="remove-bottom"><a href="../index.php">beerHarmony</a></h1>
-		 <br>
-		 <hr>
-		 <br>
-		 <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
-			<thead>
-			   <tr>
-				  <th> Name </th>
-				  <th> Gender </th>
-				  <th> Age </th>
-				  <th> Country </th>
-				  <th> Hotness </th>
-			   </tr>   
-			</thead>
-			<tbody>
-			</tbody>
-		 </table>
-	  </div>
-<script>
-<?php
 
-foreach($output as $drinker){
-	if (isset($drinker['drinkerID']))
-		echo "$('#example').dataTable().fnAddData(['".$drinker['title'].."']);";
-}
-
-?>
+</body>
+</html>
