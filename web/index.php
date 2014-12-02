@@ -26,6 +26,7 @@ include "php/DBConnect.php";
           <optgroup class="devGroup" label="Developer"></optgroup>
           <optgroup class="pubGroup" label="Publisher"></optgroup>
           <optgroup class="genreGroup" label="Publisher"></optgroup>
+          <optgroup class="esrbGroup" label="ESRB"></optgroup>
           <optgroup class="genderGroup" label="Gender "></optgroup>
           <optgroup class="incomeGroup" label="Income "></optgroup>
           <optgroup class="regionGroup" label="Region "></optgroup>
@@ -56,66 +57,53 @@ include "php/DBConnect.php";
     $toArray = array('', '', '', '', '', '');
 
     #Game Shit
-    /*
-    $gameQuery = 'select * from TestGames';
+
+    $gameQuery = 'select distinct * from TestGames';
     $result = $conn->query($gameQuery);
     while ( $row = $result->fetch_assoc() ) {
       $stripped = str_replace($fromArray,$toArray,$row['title']);
       echo "$('.titleGroup').append('<option value=\"title : " . $stripped . "\">Title : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['web_rating']);
       echo "$('.webGroup').append('<option value=\"web rating : " . $stripped . "\">Web Rating : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Developer']);
       echo "$('.devGroup').append('<option value=\"developer : " . $stripped . "\">Developer : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Publisher']);
       echo "$('.pubGroup').append('<option value=\"publisher : " . $stripped . "\">Publisher : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['user_rating']);
       echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Genres']);
       echo "$('.genreGroup').append('<option value=\"genres : " . $stripped . "\">Genres : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
+      #$stripped = str_replace($fromArray,$toArray,$row['esrb']);
+      #echo "$('.esrbGroup').append('<option value=\"esrb : " . $stripped . "\">ESRB : " . $stripped . " </option>');";
     }
-    */
+
     #People Shit
     $peopleQuery = 'select distinct * from TestPlayers2';
     $result = $conn->query($peopleQuery);
     while ( $row = $result->fetch_assoc() ) {
       $stripped = str_replace($fromArray,$toArray,$row['Income']);
       echo "$('.incomeGroup').append('<option value=\"income : " . $stripped . "\">Income : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Region']);
       echo "$('.regionGroup').append('<option value=\"region : " . $stripped . "\">Region : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Gender']);
       echo "$('.genderGroup').append('<option value=\"gender : " . $stripped . "\">Gender : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['GivenName']);
       echo "$('.gnGroup').append('<option value=\"given name : " . $stripped . "\">Given Name : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['MiddleInitial']);
       echo "$('.miGroup').append('<option value=\"middleinitial : " . $stripped . "\">Middile Initial : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['SurName']);
       echo "$('.snGroup').append('<option value=\"surname : " . $stripped . "\">Surname : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['City']);
       echo "$('.cityGroup').append('<option value=\"city : " . $stripped . "\">City : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['State']);
       echo "$('.stateGroup').append('<option value=\"state : " . $stripped . "\">State : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Marital_Status']);
       echo "$('.msGroup').append('<option value=\"marital status : " . $stripped . "\">Marital Status : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
       $stripped = str_replace($fromArray,$toArray,$row['Preferred_Genre']);
       echo "$('.pgGroup').append('<option value=\"preferred genre : " . $stripped . "\">Preferred Genre : " . $stripped . " </option>');";
-      echo "$('.chosen-select').trigger('chosen:updated');";
     }
 
+    echo "$('.chosen-select').trigger('chosen:updated');";
     ?>
   </script>
   </body>
