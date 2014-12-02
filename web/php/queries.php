@@ -66,6 +66,7 @@
 	<body>
 		<div class="container" style="top:50px">
 			<h1 class="remove-bottom"><a href="../index.php">Game Project!</a></h1>
+			<h6>Finding some table shit!</h6>
 			<br>
 			<hr>
 			<br>
