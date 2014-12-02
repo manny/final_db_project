@@ -9,6 +9,7 @@ $conn = openConnect();
 
 print_r($_POST);
 
+/*
 if (isset($_POST['queries'])){
     echo "[]";
 	$search=array($_POST['queries']);
@@ -16,6 +17,16 @@ if (isset($_POST['queries'])){
     echo "not set";
 	$search = array();
 }
+ */
+
+$search = array($_POST['queries']);
+
+foreach($search as $s){
+    echo "$s";
+};
+
+echo "</br>";
+//print_r($search);
 echo "</br>";
 if($search){
     foreach($search as $s){
