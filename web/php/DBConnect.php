@@ -1,4 +1,5 @@
 <?php
+#mysql_set_charset('utf8');
 
 function openConnect() {
 	$conn = new mysqli("104.131.178.40", "user", "password", "GameDB", 3306);
