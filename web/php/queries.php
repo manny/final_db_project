@@ -4,9 +4,8 @@
 
 include 'DBConnect.php';
 
-?>
+$conn = openConnect();
 
-<?php
 if (isset($_POST['queries'])){
     echo "post";
 	$search=$_POST['queries'];
@@ -14,17 +13,20 @@ if (isset($_POST['queries'])){
     echo "not";
 	$search = array();
 }
+
 if($search){
     foreach($search as $s){
         echo $s;
         $tkn = explode(" : ", $s);   
-        if($tkn[0]=='web_rating'){
+        echo $tkn[0];
+        if($tkn[0]=='web rating'){
             $dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
+            echo $dbQuery;
             echo "<p> dawg </p>";
             $result = $conn->query($dbQuery);
             echo "<p> dawg </p>";
             while($row = $result->fetch_assoc()){
-                echo "yo";
+                echo $row['title'];
             }
         }
     } 
