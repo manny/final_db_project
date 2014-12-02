@@ -4,53 +4,58 @@
 <?php
 
 include 'DBConnect.php';
-
+include 'HTML.php';
 $conn = openConnect();
 
-print_r($_POST);
 
-/*
 if (isset($_POST['queries'])){
-    echo "[]";
-	$search=array($_POST['queries']);
+	$search=$_POST['queries'];
 }else{
-    echo "not set";
 	$search = array();
 }
- */
+function printTable($result) {
+	heading();
+	while($row = $result->fetch_assoc()){
+		toHTML($row);
+	}
+	endTable();
 
-$search = array($_POST['queries']);
+}
 
-foreach($search as $s){
-    echo "$s";
-};
-
-echo "</br>";
-//print_r($search);
-echo "</br>";
 if($search){
-    foreach($search as $s){
-        $tkn = explode(" : ", $s);
-        echo $tkn[0];
-        echo "</br>";
-        if($tkn[0]=='web rating'){
-            $dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
-            $result = $conn->query($dbQuery);
-            while($row = $result->fetch_assoc()){
-                echo $row['title'];
-                echo "</br>";
-            }
-        }
-        else if ($tkn[0]=='user rating') {
-            $dbQuery = 'SELECT * FROM TestGames WHERE user_rating='.$tkn[1];
-            $result = $conn->query($dbQuery);
-            while($row = $result->fetch_assoc()){
-                echo $row['title'];
-                echo "</br>";
-            }
-
-        }
-    }
+	foreach($search as $s){
+		$tkn = explode(" : ", $s);
+		if($tkn[0]=='web rating'){
+			$dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
+			$result = $conn->query($dbQuery);
+			printTable($result);
+		}
+		else if ($tkn[0]=='user rating') {
+			$dbQuery = 'SELECT * FROM TestGames WHERE user_rating='.$tkn[1];
+			$result = $conn->query($dbQuery);
+			printTable($result);
+		}
+		else if ($tkn[0]=='title') {
+			$dbQuery = 'SELECT * FROM TestGames WHERE title='.$tkn[1];
+			$result = $conn->query($dbQuery);
+			printTable($result);
+		}
+		else if ($tkn[0]=='eveloper') {
+			$dbQuery = 'SELECT * FROM TestGames WHERE developer='.$tkn[1];
+			$result = $conn->query($dbQuery);
+			printTable($result);
+		}
+		else if ($tkn[0]=='genre') {
+			$dbQuery = 'SELECT * FROM TestGames WHERE genre='.$tkn[1];
+			$result = $conn->query($dbQuery);
+			printTable($result);
+		}
+		else if ($tkn[0]=='players') {
+			$dbQuery = 'SELECT * FROM TestPlayers WHERE Givenname='.$tkn[1];
+			$result = $conn->query($dbQuery);
+			printTable($result);
+		}
+	}
 }
 
 ?>
