@@ -58,11 +58,6 @@
 		<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="../lib/datatables/media/js/jquery.dataTables.js"></script>
 	</head>
-	<script>
-	$(document).ready(function(){
-		$('#myTable').DataTable();
-	});
-	</script>
 	<body>
 		<div class="container" style="top:50px">
 			<h1 class="remove-bottom"><a href="../index.php">Game Project!</a></h1>
@@ -85,5 +80,22 @@
 				</tbody>
 			</table>
 		</div>
+		<script>
+		$(document).ready(function(){
+			var table = $('#myTable').DataTable();
+		});
+		<?php
+		foreach($out as $games){
+			echo "$('#myTable').DataTable().row.add([
+			'".$games['title']."',
+			'".$games['web_rating']."',
+			'".$games['user_rating']."',
+			'".$games['Developer']."',
+			'".$games['Publisher']."',
+			'".$games['Genres']."'
+			]).draw();";
+		}
+		?>
+		</script>
 </body>
 </head>
