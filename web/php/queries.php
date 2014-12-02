@@ -1,44 +1,59 @@
 <html>
 <body>
 
-<?php
+	<?php
 
-include 'DBConnect.php';
+	include 'DBConnect.php';
 
-$conn = openConnect();
+	$conn = openConnect();
 
-if (isset($_POST['queries'])){
-	$search=$_POST['queries'];
-}else{
-	$search = array();
-}
+	print_r($_POST);
 
-if($search){
-    foreach($search as $s){
-        echo $s;
-        $tkn = explode(" : ", $s);
-        echo $tkn[0];
-        if($tkn[0]=='web rating'){
-            $dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
-            echo $dbQuery;
-            $result = $conn->query($dbQuery);
-            while($row = $result->fetch_assoc()){
-                echo $row['title'];
-            }
-        }
-        else if ($tkn[0]=='user rating') {
-            $dbQuery = 'SELECT * FROM TestGames WHERE user_rating='.$tkn[1];
-            echo $dbQuery;
-            $result = $conn->query($dbQuery);
-            while($row = $result->fetch_assoc()){
-                echo $row['title'];
-            }
+	/*
+	if (isset($_POST['queries'])){
+		echo "[]";
+		$search=array($_POST['queries']);
+	}else{
+		echo "not set";
+		$search = array();
+	}
+	*/
 
-        }
-    }
-}
+	$search = array($_POST['queries']);
 
-?>
+	foreach($search as $s){
+		echo "$s";
+	};
+
+	echo "</br>";
+	//print_r($search);
+	echo "</br>";
+	if($search){
+		foreach($search as $s){
+			$tkn = explode(" : ", $s);
+			echo $tkn[0];
+			echo "</br>";
+			if($tkn[0]=='web rating'){
+				$dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
+				$result = $conn->query($dbQuery);
+				while($row = $result->fetch_assoc()){
+					echo $row['title'];
+					echo "</br>";
+				}
+			}
+			else if ($tkn[0]=='user rating') {
+				$dbQuery = 'SELECT * FROM TestGames WHERE user_rating='.$tkn[1];
+				$result = $conn->query($dbQuery);
+				while($row = $result->fetch_assoc()){
+					echo $row['title'];
+					echo "</br>";
+				}
+
+			}
+		}
+	}
+
+	?>
 
 
 </body>
