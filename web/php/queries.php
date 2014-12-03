@@ -60,6 +60,14 @@
 						$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
 				}
 			}
+			else if ($tkn[0]=='publisher') {
+				$dbQuery = 'SELECT * FROM TestGames WHERE Publisher='.$tkn[1];
+				$result = $conn->query($dbQuery);
+				while($row = $result->fetch_assoc()){
+					//echo $row['title'];
+					$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
+				}
+			}
 		}
 	}
 
