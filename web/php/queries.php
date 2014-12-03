@@ -22,12 +22,8 @@
 	//	print_r($search);
 	$out = array();
 	if($search){
-		$fromArray = array('"', '\'', '&'. '(', ')', '|', ':');
-		$toArray = array('', '', '', '', '', '', '');
 		foreach($search as $s){
-			print_r($s);
-			$x = str_replace($fromArray, $toArray, $s);
-			$tkn = explode(" - ", $x);
+			$tkn = explode(" : ", $s);
 			if($tkn[0]=='web rating'){
 				$dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
 				$result = $conn->query($dbQuery);
@@ -80,8 +76,10 @@
 		<link rel="stylesheet" type="text/css" href="../stylesheets/base.css" />
 		<link rel="stylesheet" type="text/css" href="../stylesheets/skeleton.css" />
 		<link rel="stylesheet" type="text/css" href="../stylesheets/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../lib/avgrund/style/avgrund.css" />
 		<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="../lib/datatables/media/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="../lib/avgrund/jquery.avgrund.min.js"></script>
 	</head>
 	<body>
 		<div class="container" style="top:50px">
@@ -108,6 +106,24 @@
 		$(document).ready(function(){
 			$('#myTable').DataTable();
 		});
+		$(document).ready(function() {
+			$('element').avgrund();
+		});
+
+
+		var table = $('#myTable').DataTable();
+		$('#myTable tbody').on( 'click', 'td', function () {
+			//alert( table.cell( this ).data() );
+			$('#myTable tbody').avgrund({
+				height: 200,
+				holderClass: 'custom',
+				showClose: true,
+				enableStackAnimation: true,
+				onBlurContainer: '.container',
+				template: table.cell(this).data()
+			});
+		});
+
 		<?php
 		foreach($out as $games){
 			echo "$('#myTable').DataTable().row.add([
