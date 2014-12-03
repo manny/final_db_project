@@ -5,8 +5,6 @@
 
 	$conn = openConnect();
 
-	//print_r($_POST);
-
 	if (isset($_POST['queries'])){
 		$search=$_POST['queries'];
 	}else{
@@ -84,8 +82,7 @@
 	</head>
 	<body>
 		<div class="container" style="top:50px">
-			<h1 class="remove-bottom"><a href="../index.php">Game Project!</a></h1>
-			<h6>Finding some table shit!</h6>
+			<h1 class="remove-bottom"><a href="../index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
 			<br>
 			<hr>
 			<br>

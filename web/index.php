@@ -4,7 +4,7 @@ include "php/DBConnect.php";
 
 <html>
   <head>
-    <title>Game Project???</title>
+    <title>GameR PlayeR</title>
     <link rel="stylesheet" type="text/css" href="lib/chosen/chosen.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/base.css" />
     <link rel="stylesheet" type="text/css" href="stylesheets/skeleton.css" />
@@ -12,13 +12,14 @@ include "php/DBConnect.php";
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   </head>
   <body id="main">
+  <a href="https://github.com/manny/final_db_project"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
     <div class="container">
       <div class="centre">
-      <h1 class="remove-bottom"><a href="index.php">Game Project!</a></h1>
-      <h3>Finding some table shit!</h3>
+      <h1 class="remove-bottom"><a href="index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
+      <h6 id="description">Use our extensive gamer database to gain insights about gamers and make more effective recomendations!</h3>
       <div class="nine columns clearfix">
         <form class="formContent" action="php/queries.php" method="post">
-        <select name="queries[]" data-placeholder="Look for what?" style="width:400px;" class="chosen-select" multiple>
+        <select name="queries[]" data-placeholder="Search by player or game info (title, age, income, etc)" style="width:400px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
           <optgroup class="titleGroup" label="Titles"></optgroup>
@@ -46,7 +47,6 @@ include "php/DBConnect.php";
       </div>
       </form>
       </div>
-    </div>
     <script type="text/javascript" src="lib/chosen/chosen.jquery.min.js"></script>
     <script type="text/javascript" src="js/searching.js"></script>
     <script async>

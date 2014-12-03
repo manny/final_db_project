@@ -65,6 +65,11 @@
 		color: #181818;
 		font-family: "Georgia", "Times New Roman", serif;
 		font-weight: normal; }
+    a{
+        text-decoration:none;
+    }
+
+
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { font-weight: inherit; }
 	h1 { font-size: 46px; line-height: 50px; margin-bottom: 14px;}
 	h2 { font-size: 35px; line-height: 40px; margin-bottom: 10px; }
@@ -94,7 +99,7 @@
 
 /* #Links
 ================================================== */
-	a, a:visited { color: #333; text-decoration: underline; outline: 0; }
+	a, a:visited { color: #333; outline: 0; z-index: 100;}
 	a:hover, a:focus { color: #000; }
 	p a, p a:visited { line-height: inherit; }
 
@@ -251,7 +256,7 @@
 		font-weight: bold;
 		font-size: 13px;  }
 	select {
-		width: 220px; }
+		width: 50px; }
 	input[type="checkbox"] {
 		display: inline; }
 	label span,
@@ -272,6 +277,10 @@
 	.container{
 		position:relative;
 		top:65px;
+        border-width:3px;
+        border-radius:25px;
+        border-style:solid;
+        border-color:rgb(170, 0, 0);
 	}
 	.container.horizTranslate{
 		-webkit-transition:3s;
@@ -315,11 +324,20 @@
 		margin-right: auto;
 	}
 	label {
-		color: #00FFFF;
+		color: #161A1A;
 	}
 	#submit-button {
 		position: absolute;
 		top: 0px;
-		left: 405px;
+		left: 368px;
 		height: 29px;
 	}
+
+    #description{
+        margin-top:10px;
+        margin-bottom:10px;
+        margin-left:10px;
+    }
+    #R{
+        color:rgb(170, 0,0);
+    }
