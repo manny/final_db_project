@@ -57,15 +57,6 @@
 		-webkit-font-smoothing: antialiased; /* Fix for webkit rendering */
 		-webkit-text-size-adjust: 100%;
  }
-	#main{
-		background-image:url('../bg/bg.png');
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-		background-origin: content-box;
-		border-top:none;
-		font: bold;
-		height: 100%;
-	}
 
 
 /* #Typography
@@ -302,4 +293,33 @@
 		display: block;
 		margin-left: auto;
 		margin-right: auto;
+	}
+
+	body {
+		background: #474747 url('../bg/bg.png');
+	}
+
+	h1 {
+		text-align: center;
+	}
+	h3 {
+		text-align: center;
+		color: #222;
+		text-shadow: 0px 2px 3px #555;
+	}
+	h6 {
+		text-align: center;
+		color: #222;
+		text-shadow: 0px 2px 3px #555;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	label {
+		color: #00FFFF;
+	}
+	#submit-button {
+		position: absolute;
+		top: 0px;
+		left: 405px;
+		height: 29px;
 	}

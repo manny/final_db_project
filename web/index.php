@@ -18,7 +18,7 @@ include "php/DBConnect.php";
       <h3>Finding some table shit!</h3>
       <div class="nine columns clearfix">
         <form class="formContent" action="php/queries.php" method="post">
-        <select name="queries[]" data-placeholder="Look for what?" style="width:500px;" class="chosen-select" multiple>
+        <select name="queries[]" data-placeholder="Look for what?" style="width:400px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
           <optgroup class="titleGroup" label="Titles"></optgroup>
@@ -39,10 +39,10 @@ include "php/DBConnect.php";
           <optgroup class="msGroup" label="City Group "></optgroup>
           <optgroup class="pgGroup" label="City Group "></optgroup>
           <optgroup class="systemGroup" label="System"></optgroup>
+          <div class="three columns offset-by-one">
+            <input type="submit" id="submit-button" class="submit" value="Go!" class="submit-button" />
+          </div>
         </select>
-        <div class="three columns offset-by-one">
-        <input type="submit" class="submit" value="Go!" class="submit button" />
-        </div>
       </div>
       </form>
       </div>
