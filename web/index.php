@@ -73,8 +73,8 @@ include "php/DBConnect.php";
       echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['Genres']);
       echo "$('.genreGroup').append('<option value=\"genres : " . $stripped . "\">Genres : " . $stripped . " </option>');";
-      #$stripped = str_replace($fromArray,$toArray,$row['esrb']);
-      #echo "$('.esrbGroup').append('<option value=\"esrb : " . $stripped . "\">ESRB : " . $stripped . " </option>');";
+      $stripped = str_replace($fromArray,$toArray,$row['esrb']);
+      echo "$('.esrbGroup').append('<option value=\"esrb : " . $stripped . "\">ESRB : " . $stripped . " </option>');";
     }
 
     #People Shit

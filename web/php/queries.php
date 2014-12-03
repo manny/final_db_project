@@ -40,9 +40,25 @@
 				$dbQuery = 'SELECT * FROM TestGames WHERE user_rating='.$tkn[1];
 				$result = $conn->query($dbQuery);
 				while($row = $result->fetch_assoc()){
-					echo $row['title'];
+					//echo $row['title'];
+					$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
 				}
-
+			}
+			else if ($tkn[0]=='title') {
+				$dbQuery = 'SELECT * FROM TestGames WHERE title='.$tkn[1];
+				$result = $conn->query($dbQuery);
+				while($row = $result->fetch_assoc()){
+					//echo $row['title'];
+					$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
+				}
+			}
+			else if ($tkn[0]=='developer') {
+				$dbQuery = 'SELECT * FROM TestGames WHERE Developer='.$tkn[1];
+				$result = $conn->query($dbQuery);
+				while($row = $result->fetch_assoc()){
+					//echo $row['title'];
+						$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
+				}
 			}
 		}
 	}
@@ -82,7 +98,7 @@
 		</div>
 		<script>
 		$(document).ready(function(){
-			var table = $('#myTable').DataTable();
+			$('#myTable').DataTable();
 		});
 		<?php
 		foreach($out as $games){
