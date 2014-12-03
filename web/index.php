@@ -19,7 +19,7 @@ include "php/DBConnect.php";
       <h6 id="description">Use our extensive gamer database to gain insights about gamers and make more effective recomendations!</h3>
       <div class="nine columns clearfix">
         <form class="formContent" action="php/queries.php" method="post">
-        <select name="queries[]" data-placeholder="Search by player or game info (title, age, income, etc)" style="width:400px;" class="chosen-select" multiple>
+        <select name="queries[]" data-placeholder="Search by game info (title, rating, genre, etc)" style="width:400px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
           <optgroup class="titleGroup" label="Titles"></optgroup>
@@ -64,19 +64,19 @@ include "php/DBConnect.php";
     $result = $conn->query($gameQuery);
     while ( $row = $result->fetch_assoc() ) {
       $stripped = str_replace($fromArray,$toArray,$row['title']);
-      echo "$('.titleGroup').append('<option value=\"title : " . $stripped . "\">Title : " . $stripped . " </option>');";
+      echo "$('.titleGroup').append('<option value=\"title - " . $stripped . "\">Title - " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['web_rating']);
-      echo "$('.webGroup').append('<option value=\"web rating : " . $stripped . "\">Web Rating : " . $stripped . " </option>');";
+      echo "$('.webGroup').append('<option value=\"web rating - " . $stripped . "\">Web Rating - " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['Developer']);
-      echo "$('.devGroup').append('<option value=\"developer : " . $stripped . "\">Developer : " . $stripped . " </option>');";
+      echo "$('.devGroup').append('<option value=\"developer - " . $stripped . "\">Developer - " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['Publisher']);
-      echo "$('.pubGroup').append('<option value=\"publisher : " . $stripped . "\">Publisher : " . $stripped . " </option>');";
+      echo "$('.pubGroup').append('<option value=\"publisher - " . $stripped . "\">Publisher - " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['user_rating']);
-      echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
+      echo "$('.urGroup').append('<option value=\"user rating - " . $stripped . "\">User Rating - " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['Genres']);
-      echo "$('.genreGroup').append('<option value=\"genres : " . $stripped . "\">Genres : " . $stripped . " </option>');";
+      echo "$('.genreGroup').append('<option value=\"genres - " . $stripped . "\">Genres - " . $stripped . " </option>');";
       $stripped = str_replace($fromArray,$toArray,$row['esrb']);
-      echo "$('.esrbGroup').append('<option value=\"esrb : " . $stripped . "\">ESRB : " . $stripped . " </option>');";
+      echo "$('.esrbGroup').append('<option value=\"esrb - " . $stripped . "\">ESRB - " . $stripped . " </option>');";
     }
 
     #People Shit
@@ -109,6 +109,15 @@ include "php/DBConnect.php";
 
     echo "$('.chosen-select').trigger('chosen:updated');";
     ?>
+  </script>
+  <script>
+  var found = [];
+  $("select option").each(function() {
+    if($.inArray(this.value, found) != -1) $(this).remove();
+    found.push(this.value);
+  });
+  echo "HERE!";
+  echo "$('.chosen-select').trigger('chosen:updated');";
   </script>
   </body>
 </html>

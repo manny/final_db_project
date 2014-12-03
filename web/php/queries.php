@@ -20,11 +20,14 @@
 	*/
 
 	//	print_r($search);
-	$out = array(array());
-	$testForNow = array();
+	$out = array();
 	if($search){
+		$fromArray = array('"', '\'', '&'. '(', ')', '|', ':');
+		$toArray = array('', '', '', '', '', '', '');
 		foreach($search as $s){
-			$tkn = explode(" : ", $s);
+			print_r($s);
+			$x = str_replace($fromArray, $toArray, $s);
+			$tkn = explode(" - ", $x);
 			if($tkn[0]=='web rating'){
 				$dbQuery = 'SELECT * FROM TestGames WHERE web_rating='.$tkn[1];
 				$result = $conn->query($dbQuery);
