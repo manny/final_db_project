@@ -11,8 +11,9 @@ include "php/DBConnect.php";
     <link rel="stylesheet" type="text/css" href="stylesheets/layout.css" />
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   </head>
-  <body id="Main Page">
+  <body id="main">
     <div class="container">
+      <div class="centre">
       <h1 class="remove-bottom"><a href="index.php">Game Project!</a></h1>
       <h3>Finding some table shit!</h3>
       <div class="nine columns clearfix">
@@ -42,6 +43,7 @@ include "php/DBConnect.php";
         <div class="three columns offset-by-one">
         <input type="submit" class="submit" value="Go!" class="submit button" />
         </div>
+      </div>
       </form>
       </div>
     </div>
@@ -78,6 +80,7 @@ include "php/DBConnect.php";
     }
 
     #People Shit
+    /*
     $peopleQuery = 'select distinct * from TestPlayers2';
     $result = $conn->query($peopleQuery);
     while ( $row = $result->fetch_assoc() ) {
@@ -102,6 +105,7 @@ include "php/DBConnect.php";
       $stripped = str_replace($fromArray,$toArray,$row['Preferred_Genre']);
       echo "$('.pgGroup').append('<option value=\"preferred genre : " . $stripped . "\">Preferred Genre : " . $stripped . " </option>');";
     }
+    */
 
     echo "$('.chosen-select').trigger('chosen:updated');";
     ?>
