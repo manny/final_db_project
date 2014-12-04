@@ -73,7 +73,7 @@ $('#playerTable tbody').on( 'click', 'td', function () {
 				closeByDocument: true,
 				enableStackAnimation: true,
 				onBlurContainer: '.container',
-				template: 'The best average rated game for this user is  ' + returnedData + '.'
+				template: returnedData
 			}).click();
 		}
 		else {
@@ -84,7 +84,7 @@ $('#playerTable tbody').on( 'click', 'td', function () {
 				closeByDocument: true,
 				enableStackAnimation: true,
 				onBlurContainer: '.container',
-				template: 'There are no recommended games.'
+				template: 'There is no information.'
 			}).click();
 		}
 	})
