@@ -106,10 +106,11 @@
 		$(document).ready(function(){
 			$('#myTable').DataTable();
 		});
+		/*
 		$(document).ready(function() {
 			$('#example').avgrund();
 		});
-
+*/
 
 		var table = $('#myTable').DataTable();
 		$('#myTable tbody').on( 'click', 'td', function () {
@@ -132,7 +133,7 @@
 					enableStackAnimation: true,
 					onBlurContainer: '.container',
 					template: 'There is ' + returnedData + ' games with the same ' + $(title).html() + '.'
-				})
+				}).click();
 				}
 				else {
 					$('#myTable tbody').avgrund({
@@ -143,7 +144,7 @@
 						enableStackAnimation: true,
 						onBlurContainer: '.container',
 						template: 'There are ' + returnedData + ' games with the same ' + $(title).html() + '.'
-					})
+					}).click();
 				}
 			})
 		});
