@@ -20,14 +20,4 @@ while ( $row = $result->fetch_assoc() ) {
 
 }
 
-$gameQuery = 'select distinct user_rating from Games';
-$result = $conn->query($gameQuery);
-
-
-while ( $row = $result->fetch_assoc() ) {
-	
-	$stripped = str_replace($fromArray,$toArray,$row['user_rating']);
-	echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
-
-}
 ?>
