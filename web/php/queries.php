@@ -25,7 +25,7 @@
 		foreach($search as $s){
 			$tkn = explode(" : ", $s);
 			if($tkn[0]=='web rating'){
-				$dbQuery = 'SELECT * FROM TestGames WHERE web_rating='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE web_rating='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';
@@ -40,7 +40,7 @@
 				}
 			}
 			else if ($tkn[0]=='user rating') {
-				$dbQuery = 'SELECT * FROM TestGames WHERE user_rating='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE user_rating='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';
@@ -54,7 +54,7 @@
 				}
 			}
 			else if ($tkn[0]=='title') {
-				$dbQuery = 'SELECT * FROM TestGames WHERE title='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE title='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';
@@ -68,7 +68,7 @@
 				}
 			}
 			else if ($tkn[0]=='developer') {
-				$dbQuery = 'SELECT * FROM TestGames WHERE Developer='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE Developer='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';
@@ -82,7 +82,7 @@
 				}
 			}
 			else if ($tkn[0]=='publisher') {
-				$dbQuery = 'SELECT * FROM TestGames WHERE Publisher='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE Publisher='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';
@@ -96,7 +96,7 @@
 				}
 			}
 			else if ($tkn[0]=='genres') {
-				$dbQuery = 'SELECT * FROM TestGames WHERE Genres='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE Genres='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';
@@ -110,7 +110,7 @@
 				}
 			}
 			else if ($tkn[0]=='esrb') {
-				$dbQuery = 'SELECT * FROM TestGames WHERE esrb='."'$tkn[1]'";
+				$dbQuery = 'SELECT * FROM FinalGames WHERE esrb='."'$tkn[1]'";
 				$result = $conn->query($dbQuery);
 				if (empty($result)) {
 					echo '<script language="javascript">';

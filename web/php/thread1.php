@@ -13,7 +13,7 @@ $toArray = array('', '', '', '', '', '');
 #Game Shit
 
 
-$gameQuery = 'select distinct esrb from Games';
+$gameQuery = 'select distinct esrb from FinalGames';
 $result = $conn->query($gameQuery);
 
 

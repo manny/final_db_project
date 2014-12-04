@@ -12,7 +12,7 @@ $toArray = array('', '', '', '', '', '');
 
 #Game Shit
 
-$gameQuery = 'select distinct Genres from Games';
+$gameQuery = 'select distinct Genres from FinalGames';
 $result = $conn->query($gameQuery);
 while ( $row = $result->fetch_assoc() ) {
 	$stripped = str_replace($fromArray,$toArray,$row['Genres']);

@@ -13,7 +13,7 @@ $toArray = array('', '', '', '', '', '');
 #Game Shit
 
 
-$gameQuery = 'select distinct user_rating from Games';
+$gameQuery = 'select distinct user_rating from FinalGames';
 $result = $conn->query($gameQuery);
 
 

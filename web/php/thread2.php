@@ -12,7 +12,7 @@ $toArray = array('', '', '', '', '', '');
 
 #Game Shit
 
-$gameQuery = 'select distinct web_rating from Games';
+$gameQuery = 'select distinct web_rating from FinalGames';
 $result = $conn->query($gameQuery);
 while ( $row = $result->fetch_assoc() ) {
 	$stripped = str_replace($fromArray,$toArray,$row['web_rating']);

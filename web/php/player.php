@@ -4,7 +4,7 @@ include 'DBConnect.php';
 
 $conn = openConnect();
 
-$dbQuery = 'SELECT * FROM Tags';
+$dbQuery = 'SELECT * FROM FinalTags';
 $result = $conn->query($dbQuery);
 while($row = $result->fetch_assoc()){
 	//echo $row['title'];

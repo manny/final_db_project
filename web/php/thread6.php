@@ -13,7 +13,7 @@ $toArray = array('', '', '', '', '', '');
 #Game Shit
 
 
-$gameQuery = 'select distinct Developer from Games';
+$gameQuery = 'select distinct Developer from FinalGames';
 $result = $conn->query($gameQuery);
 
 

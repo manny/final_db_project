@@ -21,7 +21,7 @@ include "php/DBConnect.php";
 		<form class="formContent" action="php/queries.php" method="post">
 		<select name="queries[]" data-placeholder="Search by game info (title, rating, genre, etc)" style="width:400px;" class="chosen-select" multiple>
 		  <option value=""></option>
-		  <optgroup class="gameGroup" label="Games"></optgroup>
+		  <optgroup class="gameGroup" label="FinalGames"></optgroup>
 		  <optgroup class="titleGroup" label="Titles"></optgroup>
 		  <optgroup class="webGroup" label="Web Rating"></optgroup>
 		  <optgroup class="urGroup" label="User Rating"></optgroup>
@@ -63,7 +63,7 @@ $toArray = array('', '', '', '', '', '');
 
 #Game Shit
 
-$gameQuery = 'select distinct title from Games';
+$gameQuery = 'select distinct title from FinalGames';
 $result = $conn->query($gameQuery);
 while ( $row = $result->fetch_assoc() ) {
 	$stripped = str_replace($fromArray,$toArray,$row['title']);
@@ -89,15 +89,16 @@ echo $output;
 // close curl resource to free up system resources
 curl_close($ch);     
 
+$ch1 = curl_init();
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread2.php");
 
 //return the transfer as a string
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
 
 // $output contains the output string
-$output = curl_exec($ch);
+$output1 = curl_exec($ch1);
 
-echo $output;
+echo $output1;
 // close curl resource to free up system resources
 curl_close($ch);     
 
@@ -112,6 +113,45 @@ $output = curl_exec($ch);
 echo $output;
 // close curl resource to free up system resources
 curl_close($ch);     
+
+curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread4.php");
+
+//return the transfer as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+// $output contains the output string
+$output = curl_exec($ch);
+
+echo $output;
+// close curl resource to free up system resources
+curl_close($ch);     
+
+curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread5.php");
+
+//return the transfer as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+// $output contains the output string
+$output = curl_exec($ch);
+
+echo $output;
+// close curl resource to free up system resources
+curl_close($ch);     
+
+
+
+curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread6.php");
+
+//return the transfer as a string
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
+// $output contains the output string
+$output = curl_exec($ch);
+
+echo $output;
+// close curl resource to free up system resources
+curl_close($ch);     
+
 
 
 
