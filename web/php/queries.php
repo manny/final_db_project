@@ -181,7 +181,6 @@
 				indexNum: index,
 				info: dataVal
 			}, function(returnedData) {
-				// do something here with the returnedData
 				if (returnedData != 0) {
 				$('#myTable tbody').avgrund({
 					height: 100,
