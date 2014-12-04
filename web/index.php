@@ -6,9 +6,9 @@ include "php/DBConnect.php";
   <head>
     <title>GameR PlayeR</title>
     <link rel="stylesheet" type="text/css" href="lib/chosen/chosen.css" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/base.css" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/skeleton.css" />
-    <link rel="stylesheet" type="text/css" href="stylesheets/layout.css" />
+    <link rel="stylesheet" type="text/css" href="css/base.css" />
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="css/layout.css" />
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   </head>
   <body id="main">
@@ -16,7 +16,7 @@ include "php/DBConnect.php";
     <div class="container">
       <div class="centre">
       <h1 class="remove-bottom"><a href="index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
-      <h6 id="description">Use our extensive gamer database to gain insights about gamers and make more effective recomendations!</h3>
+      <h6 id="description">Use our extensive gamer database to gain insights about gamers and make more effective recommendations!</h3>
       <div class="nine columns clearfix">
         <form class="formContent" action="php/queries.php" method="post">
         <select name="queries[]" data-placeholder="Search by game info (title, rating, genre, etc)" style="width:400px;" class="chosen-select" multiple>

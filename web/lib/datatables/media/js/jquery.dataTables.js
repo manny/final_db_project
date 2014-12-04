@@ -11252,7 +11252,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sLengthMenu": "Show _MENU_ Entries",
+			"sLengthMenu": "Show _MENU_",
 	
 	
 			/**

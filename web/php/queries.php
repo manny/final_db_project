@@ -25,7 +25,7 @@
 		$fromArray = array('"', '\'', '&'. '(', ')', '|', ':');
 		$toArray = array('', '', '', '', '', '', '');
 		foreach($search as $s){
-			print_r($s);
+			//print_r($s);
 			$x = str_replace($fromArray, $toArray, $s);
 			$tkn = explode(" - ", $x);
 			if($tkn[0]=='web rating'){
@@ -77,9 +77,9 @@
 	<html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="../lib/datatables/media/css/jquery.dataTables.css" />
-		<link rel="stylesheet" type="text/css" href="../stylesheets/base.css" />
-		<link rel="stylesheet" type="text/css" href="../stylesheets/skeleton.css" />
-		<link rel="stylesheet" type="text/css" href="../stylesheets/layout.css" />
+		<link rel="stylesheet" type="text/css" href="../css/base.css" />
+		<link rel="stylesheet" type="text/css" href="../css/skeleton.css" />
+		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
 		<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
 		<script type="text/javascript" src="../lib/datatables/media/js/jquery.dataTables.js"></script>
 	</head>
@@ -89,7 +89,7 @@
 			<br>
 			<hr>
 			<br>
-			<table cellpadding="0" cellspacing="0" border="0" class="display" id="myTable" width="100%">
+			<table cellpadding="0" cellspacing="0" border="0" class="cell-border" id="myTable" width="100%">
 				<thead>
 					<tr>
 						<th> Title </th>
