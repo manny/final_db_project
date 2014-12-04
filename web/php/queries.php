@@ -164,19 +164,18 @@
 		$(document).ready(function(){
 			$('#myTable').DataTable();
 		});
-		/*
-		$(document).ready(function() {
-			$('#example').avgrund();
-		});
-*/
 
 		var table = $('#myTable').DataTable();
+		var rowIndex = 0;
+		$('#myTable tbody').on( 'mouseenter', 'tr', function () {
+			rowIndex = table.row( this ).index();
+		} );
 		$('#myTable tbody').on( 'click', 'td', function () {
 			//alert( table.cell( this ).data() );
 			var idx = table.cell(this).index().column;
 			var index = table.column(idx).index();
 			var title = table.column(idx).header();
-			var dataVal = table.column(idx).data()[0];
+			var dataVal = table.column(idx).data()[rowIndex];
 			$.post('/web/php/getCount.php', {
 				indexNum: index,
 				info: dataVal

@@ -8,7 +8,7 @@ $dbQuery = 'SELECT * FROM Tags';
 $result = $conn->query($dbQuery);
 while($row = $result->fetch_assoc()){
 	//echo $row['title'];
-	$out[]=array("ID"=>$row['ID'],"GivenName"=>$row['GivenName'],"Gender"=>$row['Gender'],"Tag"=>$row['Tag'])s;
+	$out[]=array("ID"=>$row['ID'],"GivenName"=>$row['GivenName'],"Gender"=>$row['Gender'],"Tag"=>$row['Tag']);
 
 }
 
@@ -31,7 +31,7 @@ while($row = $result->fetch_assoc()){
 			<br>
 			<hr>
 			<br>
-			<table cellpadding="0" cellspacing="0" border="0" class="display" id="myTable" width="100%">
+			<table cellpadding="0" cellspacing="0" border="0" class="display" id="playerTable" width="100%">
 				<thead>
 					<tr>
 						<th> ID </th>
@@ -46,34 +46,39 @@ while($row = $result->fetch_assoc()){
 		</div>
 <script>
 $(document).ready(function(){
-	$('#myTable').DataTable();
+	$('#playerTable').DataTable();
 });
 
 
-var table = $('#myTable').DataTable();
-$('#myTable tbody').on( 'click', 'td', function () {
+var table = $('#playerTable').DataTable();
+var rowIndex = 0;
+$('#playerTable tbody').on( 'mouseenter', 'tr', function () {
+	rowIndex = table.row( this ).index();
+} );
+$('#playerTable tbody').on( 'click', 'td', function () {
 	//alert( table.cell( this ).data() );
 	var idx = table.cell(this).index().column;
 	var index = table.column(idx).index();
 	var title = table.column(idx).header();
-	var dataVal = table.column(idx).data()[0];
+	var dataVal = table.column(idx).data()[rowIndex];
+	console.log(dataVal);
 	$.post('/web/php/rec.php', {
 		indexNum: index,
 		gamerTag: dataVal
 	}, function(returnedData) {
 		if (returnedData != 0) {
-			$('#myTable tbody').avgrund({
+			$('#playerTable tbody').avgrund({
 				height: 100,
 				holderClass: 'box',
 				showClose: true,
 				closeByDocument: true,
 				enableStackAnimation: true,
 				onBlurContainer: '.container',
-				template: 'Recommended game is  ' + returnedData + '.'
+				template: 'The best average rated game for this user is  ' + returnedData + '.'
 			}).click();
 		}
 		else {
-			$('#myTable tbody').avgrund({
+			$('#playerTable tbody').avgrund({
 				height: 100,
 				holderClass: 'box',
 				showClose: true,
@@ -88,7 +93,7 @@ $('#myTable tbody').on( 'click', 'td', function () {
 
 <?php
 foreach($out as $ID){
-	echo "$('#myTable').DataTable().row.add([
+	echo "$('#playerTable').DataTable().row.add([
 		'".$ID['ID']."',
 		'".$ID['GivenName']."',
 		'".$ID['Gender']."',
@@ -99,3 +104,4 @@ foreach($out as $ID){
 </script>
 </body>
 </head>
+</html>
