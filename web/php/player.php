@@ -61,7 +61,6 @@ $('#playerTable tbody').on( 'click', 'td', function () {
 	var index = table.column(idx).index();
 	var title = table.column(idx).header();
 	var dataVal = table.column(idx).data()[rowIndex];
-	console.log(dataVal);
 	$.post('/web/php/rec.php', {
 		indexNum: index,
 		gamerTag: dataVal
