@@ -23,4 +23,4 @@ while ( $row = $result->fetch_assoc() ) {
 	echo "$('.urGroup').append('<option value=\"user rating : " . $stripped . "\">User Rating : " . $stripped . " </option>');";
 
 }
-?
+?>

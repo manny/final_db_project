@@ -87,9 +87,6 @@ $output = curl_exec($ch);
 
 echo $output;
 // close curl resource to free up system resources
-curl_close($ch);     
-
-$ch1 = curl_init();
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread2.php");
 
 //return the transfer as a string
@@ -100,7 +97,6 @@ $output1 = curl_exec($ch1);
 
 echo $output1;
 // close curl resource to free up system resources
-curl_close($ch);     
 
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread3.php");
 
@@ -112,7 +108,6 @@ $output = curl_exec($ch);
 
 echo $output;
 // close curl resource to free up system resources
-curl_close($ch);     
 
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread4.php");
 
@@ -124,7 +119,6 @@ $output = curl_exec($ch);
 
 echo $output;
 // close curl resource to free up system resources
-curl_close($ch);     
 
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread5.php");
 
@@ -136,7 +130,6 @@ $output = curl_exec($ch);
 
 echo $output;
 // close curl resource to free up system resources
-curl_close($ch);     
 
 
 
