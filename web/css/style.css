@@ -89,6 +89,7 @@
 /* BG */
 
 	#bg {
+        /*
 		-moz-animation: bg 60s linear infinite;
 		-webkit-animation: bg 60s linear infinite;
 		-o-animation: bg 60s linear infinite;
@@ -414,4 +415,14 @@
     }
     .search{
         height:20px;
+    }
+
+    form{
+        margin-bottom:20px;
+        vertical-align:baseline;
+
+    }
+    
+    .formContent{
+        position:relative;
     }

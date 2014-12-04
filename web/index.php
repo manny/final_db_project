@@ -44,7 +44,6 @@ include "php/DBConnect.php";
             <input type="submit" id="submit-button" class="submit" value="Go!" class="submit-button" />
           </div>
         </select>
-      </div>
       </form>
       </div>
     <script type="text/javascript" src="lib/chosen/chosen.jquery.min.js"></script>
