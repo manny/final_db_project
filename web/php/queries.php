@@ -107,32 +107,65 @@
 			$('#myTable').DataTable();
 		});
 		$(document).ready(function() {
-			$('element').avgrund();
+			$('#example').avgrund();
 		});
 
 
 		var table = $('#myTable').DataTable();
 		$('#myTable tbody').on( 'click', 'td', function () {
 			//alert( table.cell( this ).data() );
-			$('#myTable tbody').avgrund({
-				height: 200,
-				holderClass: 'custom',
-				showClose: true,
-				enableStackAnimation: true,
-				onBlurContainer: '.container',
-				template: table.cell(this).data()
-			});
+			var idx = table.cell(this).index().column;
+			var index = table.column(idx).index();
+			var title = table.column(idx).header();
+			var dataVal = table.column(idx).data()[0];
+			$.post('/web/php/getCount.php', {
+				indexNum: index,
+				info: dataVal
+			}, function(returnedData) {
+				// do something here with the returnedData
+				if (returnedData != 0) {
+				$('#myTable tbody').avgrund({
+					height: 100,
+					holderClass: 'box',
+					showClose: true,
+					closeByDocument: true,
+					enableStackAnimation: true,
+					onBlurContainer: '.container',
+					template: 'There is ' + returnedData + ' games with the same ' + $(title).html() + '.'
+				})
+				}
+				else {
+					$('#myTable tbody').avgrund({
+						height: 100,
+						holderClass: 'box',
+						showClose: true,
+						closeByDocument: true,
+						enableStackAnimation: true,
+						onBlurContainer: '.container',
+						template: 'There are ' + returnedData + ' games with the same ' + $(title).html() + '.'
+					})
+				}
+			})
 		});
 
 		<?php
+		$fromArray = array('"', '\'', '&'. '(', ')', '|');
+		$toArray = array('', '', '', '', '', '');
 		foreach($out as $games){
+			$title = str_replace($fromArray, $toArray, $games['title']);
+			$web_rating = str_replace($fromArray, $toArray, $games['web_rating']);
+			$user_rating = str_replace($fromArray, $toArray, $games['user_rating']);
+			$dev = str_replace($fromArray, $toArray, $games['Developer']);
+			$pub = str_replace($fromArray, $toArray, $games['Publisher']);
+			$genre = str_replace($fromArray, $toArray, $games['Genres']);
+
 			echo "$('#myTable').DataTable().row.add([
-			'".$games['title']."',
-			'".$games['web_rating']."',
-			'".$games['user_rating']."',
-			'".$games['Developer']."',
-			'".$games['Publisher']."',
-			'".$games['Genres']."'
+			'".$title."',
+			'".$web_rating."',
+			'".$user_rating."',
+			'".$dev."',
+			'".$pub."',
+			'".$genre."'
 			]).draw();";
 		}
 		?>
