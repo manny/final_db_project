@@ -8,7 +8,7 @@ $dbQuery = 'SELECT * FROM Tags';
 $result = $conn->query($dbQuery);
 while($row = $result->fetch_assoc()){
 	//echo $row['title'];
-	$out[]=array("ID"=>$row['ID'],"GivenName"=>$row['GivenName'],"Gender"=>$row['Gender'],"Tag"=>$row['Tag']);
+	$out[]=array("ID"=>$row['ID'],"GivenName"=>$row['GivenName'],"Gender"=>$row['Gender'],"Tag"=>$row['Tag'])s;
 
 }
 
@@ -48,22 +48,42 @@ while($row = $result->fetch_assoc()){
 $(document).ready(function(){
 	$('#myTable').DataTable();
 });
-$(document).ready(function() {
-	$('element').avgrund();
-});
 
 
 var table = $('#myTable').DataTable();
 $('#myTable tbody').on( 'click', 'td', function () {
 	//alert( table.cell( this ).data() );
-	$('#myTable tbody').avgrund({
-		height: 200,
-			holderClass: 'custom',
-			showClose: true,
-			enableStackAnimation: true,
-			onBlurContainer: '.container',
-			template: table.cell(this).data()
-	});
+	var idx = table.cell(this).index().column;
+	var index = table.column(idx).index();
+	var title = table.column(idx).header();
+	var dataVal = table.column(idx).data()[0];
+	$.post('/web/php/rec.php', {
+		indexNum: index,
+		gamerTag: dataVal
+	}, function(returnedData) {
+		if (returnedData != 0) {
+			$('#myTable tbody').avgrund({
+				height: 100,
+				holderClass: 'box',
+				showClose: true,
+				closeByDocument: true,
+				enableStackAnimation: true,
+				onBlurContainer: '.container',
+				template: 'Recommended game is  ' + returnedData + '.'
+			}).click();
+		}
+		else {
+			$('#myTable tbody').avgrund({
+				height: 100,
+				holderClass: 'box',
+				showClose: true,
+				closeByDocument: true,
+				enableStackAnimation: true,
+				onBlurContainer: '.container',
+				template: 'There are no recommended games.'
+			}).click();
+		}
+	})
 });
 
 <?php
