@@ -95,6 +95,34 @@
 					$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
 				}
 			}
+			else if ($tkn[0]=='genres') {
+				$dbQuery = 'SELECT * FROM TestGames WHERE Genres='."'$tkn[1]'";
+				$result = $conn->query($dbQuery);
+				if (empty($result)) {
+					echo '<script language="javascript">';
+					echo 'alert("Error with finding in database")';
+					echo '</script>';
+					exit();
+				}
+				while($row = $result->fetch_assoc()){
+					//echo $row['title'];
+					$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
+				}
+			}
+			else if ($tkn[0]=='esrb') {
+				$dbQuery = 'SELECT * FROM TestGames WHERE esrb='."'$tkn[1]'";
+				$result = $conn->query($dbQuery);
+				if (empty($result)) {
+					echo '<script language="javascript">';
+					echo 'alert("Error with finding in database")';
+					echo '</script>';
+					exit();
+				}
+				while($row = $result->fetch_assoc()){
+					//echo $row['title'];
+					$out[]=array("title"=>$row['title'],"web_rating"=>$row['web_rating'],"user_rating"=>$row['user_rating'],"Developer"=>$row['Developer'],"Publisher"=>$row['Publisher'],"Genres"=>$row['Genres']);
+				}
+			}
 		}
 	}
 
