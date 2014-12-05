@@ -1,0 +1,10 @@
+﻿Project Roles
+
+
+Matt Klein - Designed and implemented Game recommendation using php’s mysql API. Implemented a full stack solution for displaying query results and search options using chosen and dataTables libraries. 
+
+
+David Fu - Created tables for Entities and developed the backend for the GameR PlayeR application, created, and added the test data tuples. Managed the server tasked with hosting the mysql server and php application. Assisted in the development of the recommendation system. 
+
+
+Manuel Lopez - Designed the user interface for the application and assisted in initial php-mysql interaction.
