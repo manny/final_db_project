@@ -12,7 +12,8 @@ include "php/DBConnect.php";
     <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
   </head>
   <body id="main">
-  <a href="https://github.com/manny/final_db_project"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_red_aa0000.png"></a>
+    <div id="bg"/>
+  <a href="https://github.com/manny/final_db_project"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/365986a132ccd6a44c23a9169022c0b5c890c387/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f7265645f6161303030302e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"></a>
     <div class="container">
       <div class="centre">
       <h1 class="remove-bottom"><a href="index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
@@ -47,7 +48,7 @@ include "php/DBConnect.php";
       </div>
       </form>
 
-		<a href="php/player.php" class="button">Click Me</a>
+      <h2 id="links"><a href="index.php">G</a>                <a href="php/player.php">P</a></h2>
 
 	  </div>
     <script type="text/javascript" src="lib/chosen/chosen.jquery.min.js"></script>

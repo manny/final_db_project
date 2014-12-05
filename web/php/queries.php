@@ -140,6 +140,7 @@
 		<script type="text/javascript" src="../lib/avgrund/jquery.avgrund.min.js"></script>
 	</head>
 	<body>
+		<div id="bg"/>
 		<div class="container" style="top:50px">
 			<h1 class="remove-bottom"><a href="../index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
 			<br>
