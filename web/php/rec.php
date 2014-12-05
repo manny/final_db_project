@@ -10,7 +10,7 @@ $tag = $_POST['gamerTag'];
 
 
 if ($num == 0) {
-  $query = 'select Ethnicity,Players.GivenName,Players.Surname,City,State,Income,Marital_Status from Players,Tags where Tags.GivenName=Players.GivenName and Tags.Surname=Players.Surname and Tags.ID='."'$tag'";
+  $query = 'select Ethnicity,FinalPlayers.GivenName,FinalPlayers.Surname,City,State,Income,Marital_Status from FinalPlayers,FinalTags where FinalTags.GivenName=FinalPlayers.GivenName and FinalTags.Surname=FinalPlayers.Surname and FinalTags.ID='."'$tag'";
   $result = $conn->query($query);
   if (empty($result)) {
     echo "0";
@@ -24,7 +24,7 @@ if ($num == 0) {
 }
 else if ($num == 3) {
   //$query = 'Select distinct title from TestGames g,Players,Owns where Players.GivenName='.$tag.' and Owns.First_Name=Players.GivenName and g.Genres Like Concat("%",Players.Preferred_Genre,"%") and Owns.Game<>g.title and g.web_rating+g.user_rating=(Select max(web_rating+user_rating) from TestGames g,Players,Owns where Players.GivenName='Samuel' and Owns.First_Name=Players.GivenName and g.Genres Like Concat("%",Players.Preferred_Genre,"%") and Owns.Game<>g.title)';
-  $query = 'select distinct title from TestGames g,Players,Owns,Tags where Players.GivenName=Tags.GivenName and Players.Surname=Tags.Surname and Tags.Tag='."'$tag'". ' and Owns.First_Name=Players.GivenName and g.Genres Like Concat("%",Players.Preferred_Genre,"%") and Owns.Game<>g.title and g.web_rating+g.user_rating=(Select max(web_rating+user_rating) from TestGames g,Players,Owns,Tags where Players.GivenName=Tags.GivenName and Players.Surname=Tags.Surname and Tags.Tag='."'$tag'". ' and Owns.First_Name=Players.GivenName and g.Genres Like Concat("%",Players.Preferred_Genre,"%") and Owns.Game<>g.title)';
+  $query = 'select distinct title from FinalGames g,FinalPlayers,FinalOwns,FinalTags where FinalPlayers.GivenName=FinalTags.GivenName and FinalPlayers.Surname=FinalTags.Surname and FinalTags.Tag='."'$tag'". ' and FinalOwns.First_Name=FinalPlayers.GivenName and g.Genres Like Concat("%",FinalPlayers.Preferred_Genre,"%") and FinalOwns.Game<>g.title and g.web_rating+g.user_rating=(Select max(web_rating+user_rating) from FinalGames g,FinalPlayers,FinalOwns,FinalTags where FinalPlayers.GivenName=FinalTags.GivenName and FinalPlayers.Surname=FinalTags.Surname and FinalTags.Tag='."'$tag'". ' and FinalOwns.First_Name=FinalPlayers.GivenName and g.Genres Like Concat("%",FinalPlayers.Preferred_Genre,"%") and FinalOwns.Game<>g.title)';
   $result = $conn->query($query);
   if (empty($result)) {
     echo 'There are no recommended games.';
