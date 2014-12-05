@@ -19,7 +19,7 @@ $result = $conn->query($gameQuery);
 
 while ( $row = $result->fetch_assoc() ) {
 	$stripped = str_replace($fromArray,$toArray,$row['esrb']);
-	echo "$('.webGroup').append('<option value=\"esrb : " . $stripped . "\">ESRB : " . $stripped . " </option>');";
+	echo "$('.esrbGroup').append('<option value=\"esrb : " . $stripped . "\">ESRB : " . $stripped . " </option>');";
 
 
 }

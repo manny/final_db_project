@@ -28,7 +28,7 @@ include "php/DBConnect.php";
 		  <optgroup class="urGroup" label="User Rating"></optgroup>
 		  <optgroup class="devGroup" label="Developer"></optgroup>
 		  <optgroup class="pubGroup" label="Publisher"></optgroup>
-		  <optgroup class="genreGroup" label="Publisher"></optgroup>
+		  <optgroup class="genreGroup" label="Genre"></optgroup>
 		  <optgroup class="esrbGroup" label="ESRB"></optgroup>
 		  <optgroup class="genderGroup" label="Gender "></optgroup>
 		  <optgroup class="incomeGroup" label="Income "></optgroup>
@@ -91,12 +91,12 @@ echo $output;
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread2.php");
 
 //return the transfer as a string
-curl_setopt($ch1, CURLOPT_RETURNTRANSFER, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 // $output contains the output string
-$output1 = curl_exec($ch1);
+$output = curl_exec($ch);
 
-echo $output1;
+echo $output;
 // close curl resource to free up system resources
 
 curl_setopt($ch, CURLOPT_URL, "104.131.178.40/web/php/thread3.php");
