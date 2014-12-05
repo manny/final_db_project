@@ -89,7 +89,6 @@
 /* BG */
 
 	#bg {
-        /*
 		-moz-animation: bg 60s linear infinite;
 		-webkit-animation: bg 60s linear infinite;
 		-o-animation: bg 60s linear infinite;
@@ -425,4 +424,7 @@
     
     .formContent{
         position:relative;
+    }
+    .chosen-container .chosen-results{
+        max-height:100px;
     }

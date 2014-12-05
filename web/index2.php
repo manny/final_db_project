@@ -40,7 +40,7 @@ include "php/DBConnect.php";
 						<!--<p>Security Chief &nbsp;&bull;&nbsp; Cyborg &nbsp;&bull;&nbsp; Never asked for this</p>-->
 						<p id='description'>Use our extensive gamer database to gain insights about</br>gamers and make more effective purchase recommendations</p>
       <div class="nine columns clearfix">
-        <form class="formContent" action="php/queries.php" method="post">
+        <form class="formContent" action="queries2.php" method="post">
         <select name="queries[]" data-placeholder="Search by game info (title, rating, genre, etc)" style="width:400px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>

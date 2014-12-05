@@ -76,15 +76,31 @@
 
 	<html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="../lib/datatables/media/css/jquery.dataTables.css" />
-		<link rel="stylesheet" type="text/css" href="../css/base.css" />
-		<link rel="stylesheet" type="text/css" href="../css/skeleton.css" />
-		<link rel="stylesheet" type="text/css" href="../css/layout.css" />
-		<script type="text/javascript" src="../js/jquery-1.10.2.js"></script>
-		<script type="text/javascript" src="../lib/datatables/media/js/jquery.dataTables.js"></script>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+		<script src="/js/skel.min.js"></script>
+		<script src="/js/init.js"></script>
+        <script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+		<noscript>
+			<link rel="stylesheet" href="/css/style.css" />
+			<link rel="stylesheet" href="/css/style-wide.css" />
+			<link rel="stylesheet" href="/css/style-noscript.css" />
+		</noscript>
+		<link rel="stylesheet" type="text/css" href="/lib/datatables/media/css/jquery.dataTables.css" />
+		<script type="text/javascript" src="/js/jquery-1.10.2.js"></script>
+		<script type="text/javascript" src="/lib/datatables/media/js/jquery.dataTables.js"></script>
 	</head>
-	<body>
-  <div id="bg"></div>
+	<body class="loading">
+		<div id="wrapper">
+			<div id="bg"></div>
+			<div id="overlay"></div>
+			<div id="main">
+				<!-- Header -->
+					<header id="header">
+            
+
 		<div class="container" style="top:50px">
 			<h1 class="remove-bottom"><a href="../index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
 			<br>
@@ -122,5 +138,13 @@
 		}
 		?>
 		</script>
+        </header>
+
+    <!-- Footer -->
+        <footer id="footer">
+            <span class="copyright">&copy; Untitled. Design: <a href="http://html5up.net">HTML5 UP</a>.</span>
+        </footer>
+			</div>
+		</div>
 </body>
 </head>

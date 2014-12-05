@@ -1,15 +1,15 @@
 <?php
-include "php/DBConnect.php";
+include "DBConnect.php";
 ?>
 
 <html>
   <head>
     <title>GameR PlayeR</title>
-    <link rel="stylesheet" type="text/css" href="lib/chosen/chosen.css" />
-    <link rel="stylesheet" type="text/css" href="css/base.css" />
-    <link rel="stylesheet" type="text/css" href="css/skeleton.css" />
-    <link rel="stylesheet" type="text/css" href="css/layout.css" />
-    <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../lib/chosen/chosen.css" />
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <link rel="stylesheet" type="text/css" href="../css/skeleton.css" />
+    <link rel="stylesheet" type="text/css" href="../css/layout.css" />
+    <script type="text/javascript" src="../js/jquery-1.10.2.min.js"></script>
   </head>
 
   <body id="main">
@@ -20,7 +20,7 @@ include "php/DBConnect.php";
       <h1 class="remove-bottom"><a href="index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
       <h6 id="description">Use our extensive gamer database to gain insights about gamers and make more effective purchase recommendations!</h3>
       <div class="nine columns clearfix">
-        <form class="formContent" action="php/queries.php" method="post">
+        <form class="formContent" action="queries.php" method="post">
         <select name="queries[]" data-placeholder="Search by game info (title, rating, genre, etc)" style="width:400px;" class="chosen-select" multiple>
           <option value=""></option>
           <optgroup class="gameGroup" label="Games"></optgroup>
@@ -47,10 +47,10 @@ include "php/DBConnect.php";
           </div>
         </select>
       </form>
-      <h2 id="links"><a href="games.php">G</a>                <a href="players.php">P</a></h2>
+      <h2 id="links"><a href="gamesearch.php">G</a>                <a href="playersearch.php">P</a></h2>
       </div>
-    <script type="text/javascript" src="lib/chosen/chosen.jquery.min.js"></script>
-    <script type="text/javascript" src="js/searching.js"></script>
+    <script type="text/javascript" src="../lib/chosen/chosen.jquery.min.js"></script>
+    <script type="text/javascript" src="../js/searching.js"></script>
     <script async>
     <?php
 
@@ -109,15 +109,6 @@ include "php/DBConnect.php";
 
     echo "$('.chosen-select').trigger('chosen:updated');";
     ?>
-  </script>
-  <script>
-  var found = [];
-  $("select option").each(function() {
-    if($.inArray(this.value, found) != -1) $(this).remove();
-    found.push(this.value);
-  });
-  echo "HERE!";
-  echo "$('.chosen-select').trigger('chosen:updated');";
   </script>
   </body>
 </html>
