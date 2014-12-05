@@ -24,6 +24,12 @@
 
 /* #Reset & Basics (Inspired by E. Meyers)
 ================================================== */
+
+@font-face{
+    font-family: myFont;
+    src: url(8bit.TTF);
+}
+
 	html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
 		margin: 0;
 		padding: 0;
@@ -44,7 +50,10 @@
 		content: '';
 		content: none; }
 	table {
+        border-width: 2px;
+        border-style: solid;
 		border-collapse: collapse;
+        border-radius:4px;
 		border-spacing: 0; }
 
 
@@ -277,11 +286,24 @@
 	.container{
 		position:relative;
 		top:65px;
-        border-width:3px;
-        border-radius:25px;
+        border-width:2px;
+        border-radius:15px;
+/*
         border-style:solid;
         border-color:rgb(170, 0, 0);
-	}
+        */
+
+        position: relative;
+        width: 500px;
+        margin-top:200px;
+        margin: 0 auto;
+        padding-top: 30;
+        padding-bottom: 30;
+        padding-right: 20;
+        padding-left: 20;
+        background: rgba(100, 148, 184, 0.33);
+        -pie-background: rgba(100,148,184,0.33);}
+
 	.container.horizTranslate{
 		-webkit-transition:3s;
 		-moz-transition:3s;
@@ -305,12 +327,32 @@
 	}
 
 	body {
-		background: #474747 url('../bg/bg.png');
+		background: #474747;
 	}
+    #bg{
+		/* Set your background with this */
+		background: #348cb2 url("images/grass.jpg") center;
+		background-repeat: repeat-x;
+        background-size:cover;
+		height: 100%;
+        width:100%;
+        size:100%;
+		left: 0;
+		opacity: 1;
+		position: fixed;
+		top: 0;
+        zoom:65%;
+
+    }
 
 	h1 {
 		text-align: center;
+        font-family: myFont;
 	}
+
+    h2{
+        font-family: myFont;
+    }
 	h3 {
 		text-align: center;
 		color: #222;
@@ -318,7 +360,7 @@
 	}
 	h6 {
 		text-align: center;
-		color: #222;
+		color: rgb(0,0,0);
 		text-shadow: 0px 2px 3px #555;
 		margin-left: auto;
 		margin-right: auto;
@@ -326,6 +368,10 @@
 	label {
 		color: #161A1A;
 	}
+    select {
+        margin-right:0px;
+    }
+
 	#submit-button {
 		position: absolute;
 		top: 0px;
@@ -339,5 +385,20 @@
         margin-left:10px;
     }
     #R{
-        color:rgb(170, 0,0);
+        color:rgba(69, 101,255, 0.72);
     }
+
+    #myTable_length{
+        width:300px;
+        display:inline-block;
+    }
+    td{
+        background:rgba(255, 255,255,.57);
+    }
+    #links{
+        text-align: center;
+        letter-spacing:10px;
+    }
+		html {
+			background: url(http://subtlepatterns.com/patterns/dark_dotted.png) repeat #222;
+		}

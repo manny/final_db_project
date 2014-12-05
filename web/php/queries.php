@@ -140,6 +140,7 @@
 		<script type="text/javascript" src="../lib/avgrund/jquery.avgrund.min.js"></script>
 	</head>
 	<body>
+		<div id="bg">
 		<div class="container" style="top:50px">
 			<h1 class="remove-bottom"><a href="../index.php">Game<span id="R">R</span> Playe<span id="R">R</span></a></h1>
 			<br>
@@ -147,7 +148,6 @@
 			<br>
 			<table cellpadding="0" cellspacing="0" border="0" class="display" id="myTable" width="100%">
 				<thead>
-					<tr>
 						<th> Title </th>
 						<th> Web Rating </th>
 						<th> User Rating </th>
@@ -161,11 +161,10 @@
 			</table>
 		</div>
 		<script>
-		$(document).ready(function(){
-			$('#myTable').DataTable();
-		});
 
-		var table = $('#myTable').DataTable();
+		var table = $('#myTable').DataTable( {
+			"pageLength": 3
+		});
 		var rowIndex = 0;
 		$('#myTable tbody').on( 'mouseenter', 'tr', function () {
 			rowIndex = table.row( this ).index();
@@ -227,5 +226,6 @@
 		}
 		?>
 		</script>
+	</div>
 </body>
 </head>
