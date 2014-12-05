@@ -341,7 +341,7 @@
 		opacity: 1;
 		position: fixed;
 		top: 0;
-        zoom:150%;
+        zoom:65%;
 
     }
 
@@ -396,11 +396,9 @@
         background:rgba(255, 255,255,.57);
     }
     #links{
-        letter-spacing:30px;
-        width:200px;
-        margin-left:130px;
+        text-align: center;
+        letter-spacing:10px;
     }
 		html {
 			background: url(http://subtlepatterns.com/patterns/dark_dotted.png) repeat #222;
 		}
-		
